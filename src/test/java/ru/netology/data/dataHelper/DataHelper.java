@@ -1,9 +1,12 @@
 package ru.netology.data.dataHelper;
 
+import lombok.Data;
 import lombok.Value;
 
 public class DataHelper {
-    private DataHelper() {}
+
+    private DataHelper() {
+    }
 
     @Value
     public static class AuthInfo {
