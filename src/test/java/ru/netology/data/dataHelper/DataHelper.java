@@ -6,7 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Value;
 
 public class DataHelper {
-    private DataHelper() {}
+
+    private DataHelper() {
+    }
 
 
     @Data
