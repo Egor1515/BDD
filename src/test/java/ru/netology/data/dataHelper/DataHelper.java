@@ -10,9 +10,11 @@ public class DataHelper {
     private DataHelper() {
     }
 
-    @AllArgsConstructor
-    @NoArgsConstructor
+
+
     @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
 
     public static class AuthInfo {
         String login;

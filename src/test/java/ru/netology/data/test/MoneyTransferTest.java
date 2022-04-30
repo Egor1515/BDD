@@ -6,6 +6,8 @@ import ru.netology.data.dataHelper.DataHelper;
 import ru.netology.data.page.LoginPageV1;
 import ru.netology.data.page.LoginPageV2;
 import ru.netology.data.page.LoginPageV3;
+import ru.netology.data.page.VerificationPage;
+
 import static com.codeborne.selenide.Selenide.open;
 
 class MoneyTransferTest {
