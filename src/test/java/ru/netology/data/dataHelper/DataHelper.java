@@ -1,6 +1,8 @@
 package ru.netology.data.dataHelper;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.Value;
 
 public class DataHelper {
@@ -8,7 +10,10 @@ public class DataHelper {
     private DataHelper() {
     }
 
-    @Value
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @Data
+
     public static class AuthInfo {
         String login;
         String password;
