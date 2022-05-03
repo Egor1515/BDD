@@ -2,8 +2,8 @@ package ru.netology.data.page;
 
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
-import ru.netology.data.dataHelper.AuthInformation;
 import ru.netology.data.dataHelper.DataHelper;
+
 
 import static com.codeborne.selenide.Selenide.page;
 
@@ -15,7 +15,7 @@ public class LoginPageV3 {
     @FindBy(css = "[data-test-id=action-login]")
     private SelenideElement loginButton;
 
-    public VerificationPage validLogin(AuthInformation.AuthInfo info) {
+    public VerificationPage validLogin(DataHelper.AuthInfo info) {
         loginField.setValue(info.getLogin());
         passwordField.setValue(info.getPassword());
         loginButton.click();
