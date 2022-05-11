@@ -1,8 +1,12 @@
 package ru.netology.data.page;
 
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import lombok.val;
+import ru.netology.data.datahelper.DataHelper;
 
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class DashboardPage {
@@ -26,5 +30,19 @@ public class DashboardPage {
         return Integer.parseInt(value);
     }
 
-}
+    private final SelenideElement codeField = $("[data-test-id=code] input");
+    private final SelenideElement verifyButton = $("[data-test-id=action-verify]");
+
+
+       private void VerificationPage() {
+            codeField.shouldBe(visible);
+        }
+
+        private DashBoard validVerify(DataHelper.VerificationCode verificationCode) {
+            codeField.setValue(verificationCode.getCode());
+            verifyButton.click();
+            return new DashBoard();
+        }
+
+    }
 
