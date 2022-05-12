@@ -10,18 +10,24 @@ import ru.netology.data.page.*;
 import static com.codeborne.selenide.Selenide.open;
 
 class MoneyTransferTest {
-    CardTransfer card = new CardTransfer();
+    DashboardPage page = new DashboardPage();
+    String card1 = "5559000000000001";
+    String card2 = "5559000000000002";
+
+
     @Test
     void shouldTransferMoneyBetweenOwnCardsV1() {
-        Configuration.holdBrowserOpen= true;
+        Configuration.holdBrowserOpen = true;
         var page = new DashboardPage();
         var loginPage = open("http://localhost:9999", LoginPageV1.class);
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
         var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
         verificationPage.validVerify(verificationCode);
-        card.cardTransfer1();
-        page.getFirstCardBalance();
+        page.sentFromFirstCard(card2);
+
+
+
     }
 
     @Test
@@ -32,9 +38,6 @@ class MoneyTransferTest {
         var verificationPage = loginPage.validLogin(authInfo);
         var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
         verificationPage.validVerify(verificationCode);
-        card.cardTransfer1();
-
-
 
 
     }
