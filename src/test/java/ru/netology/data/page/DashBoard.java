@@ -20,7 +20,7 @@ public class DashBoard {
     private final String balanceStart = "баланс: ";
     private final String balanceFinish = " р.";
 
-    public class GetCardBalance {
+    public static class GetCardBalance {
 
         public GetCardBalance() {
         }

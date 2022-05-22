@@ -4,13 +4,13 @@ package ru.netology.data.test;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.datahelper.DataHelper;
-import ru.netology.data.page.CardTransfer;
 import ru.netology.data.page.*;
 
 import static com.codeborne.selenide.Selenide.open;
 
 class MoneyTransferTest {
     DashboardPage page = new DashboardPage();
+    DashBoard.GetCardBalance balance = new DashBoard.GetCardBalance();
     String card1 = "5559000000000001";
     String card2 = "5559000000000002";
 
@@ -25,6 +25,10 @@ class MoneyTransferTest {
         var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
         verificationPage.validVerify(verificationCode);
         page.sentFromFirstCard(card2);
+        int expected = balance.getFirstCardBalance();  //TODO : добавить порядок действий и вызывать поочередно баланс
+        
+        int actual = balance.getFirstCardBalance();
+
 
 
 
