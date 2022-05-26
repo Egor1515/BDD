@@ -16,9 +16,9 @@ public class DashBoard {
         heading.shouldBe(visible);
     }
 
-    private ElementsCollection cards = $$(".list__item div");
-    private final String balanceStart = "баланс: ";
-    private final String balanceFinish = " р.";
+    private static ElementsCollection cards = $$(".list__item div");
+    private static final String balanceStart = "баланс: ";
+    private static final String balanceFinish = " р.";
 
     public static class GetCardBalance {
 
