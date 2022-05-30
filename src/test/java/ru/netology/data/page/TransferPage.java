@@ -6,13 +6,12 @@ import com.github.javafaker.Faker;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class DashboardPage {
+public class TransferPage {
 
     static Faker faker = new Faker();
     private static final SelenideElement amountSent = $("[data-test-id='amount'] input");
     private static final SelenideElement moneyFrom = $("[data-test-id='from'] input");
     private static final SelenideElement buttonSent = $(".button[data-test-id='action-transfer']");
-    private static final SelenideElement button = $(".button[data-test-id='action-deposit']");
     private static final int amount = Integer.parseInt(faker.numerify("###"));
     private final String card1 = "5559 0000 0000 0001";
     private final String card2 = "5559 0000 0000 0002";
@@ -21,24 +20,17 @@ public class DashboardPage {
         amountSent.setValue(String.valueOf(amount));
         moneyFrom.setValue(card);
         buttonSent.click();
-
     }
-
     public static int getAmount() {
         return amount;
     }
-
     public void sentFromFirstCard(String card) {
-        button.click();
+        DashBoard.secondCardButton();
         amountSent.setValue(String.valueOf(amount));
         moneyFrom.setValue(card);
         buttonSent.click();
 
     }
-
-    public class CardTransfer {
-        Faker faker = new Faker();
-
 
         public DashBoard cardTransfer1(String card) {
             $("[data-test-id='action-deposit']").should(Condition.text("Пополнить")).click();
@@ -59,5 +51,4 @@ public class DashboardPage {
     }
 
 
-}
 

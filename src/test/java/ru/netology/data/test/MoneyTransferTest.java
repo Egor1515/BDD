@@ -19,7 +19,7 @@ class MoneyTransferTest {
     @Test
     void shouldTransferMoneyBetweenOwnCardsV1() {
         Configuration.holdBrowserOpen = true;
-        var page = new DashboardPage();
+        var page = new TransferPage();
         var loginPage = open("http://localhost:9999", LoginPageV1.class);
         var authInfo = DataHelper.getAuthInfo();
         var verificationPage = loginPage.validLogin(authInfo);
@@ -27,7 +27,7 @@ class MoneyTransferTest {
         verificationPage.validVerify(verificationCode);
         int expected = balance.getFirstCardBalance();
         page.sentFromFirstCard(card2);
-        int actual = balance.getFirstCardBalance() - DashboardPage.getAmount();
+        int actual = balance.getFirstCardBalance() - TransferPage.getAmount();
         assertEquals(expected,actual);
 
 
