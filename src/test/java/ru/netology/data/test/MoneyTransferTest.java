@@ -14,8 +14,6 @@ class MoneyTransferTest {
     DashBoard.GetCardBalance balance = new DashBoard.GetCardBalance();
     String card1 = "5559000000000001";
     String card2 = "5559000000000002";
-
-
     @Test
     void shouldTransferMoneyBetweenOwnCardsV1() {
         Configuration.holdBrowserOpen = true;
