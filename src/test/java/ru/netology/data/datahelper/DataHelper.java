@@ -1,25 +1,26 @@
 package ru.netology.data.datahelper;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.*;
 
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.*;
 
 public class DataHelper {
-    private static final String cardInfoStart = "number: '";
-    private static final String cardInfoFinish = "'";
-    private static final SelenideElement cardInfo1 = $("data-test-id ='92df3f1c-a033-48e6-8390-206f6b1f56c0'");
-    private static final SelenideElement cardInfo2 = $("data-test-id ='0f3f5c2a-249e-4c3d-8287-09f7a039391d'");
+    private static final ElementsCollection cardInfo1 = $$(".list__item div");
+    private static final String cardInfoStart = "";
+    private static final String cardInfoFinish = ", баланс";
+
 
     public static int cardInfo1() {
-        val text = cardInfo1.text();
+        val text = cardInfo1.first().text();
         return extractCardNumber(text);
     }
 
-    public static int cardInfo2() {
-        val text = cardInfo2.text();
-        return extractCardNumber(text);
-    }
+//    public static int cardInfo2() {
+//        val text = cardInfo2.text();
+//        return extractCardNumber(text);
+//    }
 
 
     public static int extractCardNumber(String text) {

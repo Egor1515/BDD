@@ -9,8 +9,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class DashBoard {
 
-    private static SelenideElement card1 = $x("//*[@id=\"root\"]/div/ul/li[1]/div/button");
-    private static SelenideElement card2 = $x("//*[@id=\"root\"]/div/ul/li[2]/div/button");
+    private static SelenideElement card1 = $x("//*[@id='root']/div/ul/li[1]/div/button");
+    private static SelenideElement card2 = $x("//*[@id='root']/div/ul/li[2]/div/button");
     private static SelenideElement heading = $("[data-test-id='dashboard']");
 
     private static SelenideElement reload = $("[data-test-id='action-reload']");
@@ -32,8 +32,6 @@ public class DashBoard {
     }
     public static class GetCardBalance {
 
-        public GetCardBalance() {
-        }
         public int getFirstCardBalance() {
             val text = cards.first().text();
             return extractBalance(text);

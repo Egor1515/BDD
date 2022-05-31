@@ -16,9 +16,9 @@ public class TransferPage {
     private final String card1 = "5559 0000 0000 0001";
     private final String card2 = "5559 0000 0000 0002";
 
-    public void sentFromSecondCard(int card) {
+    public void sentFromSecondCard(String card) {
         amountSent.setValue(String.valueOf(amount));
-        moneyFrom.setValue(String.valueOf(card));
+        moneyFrom.setValue(card);
         buttonSent.click();
     }
     public static int getAmount() {
@@ -29,6 +29,7 @@ public class TransferPage {
         amountSent.setValue(String.valueOf(amount));
         moneyFrom.setValue(String.valueOf(card));
         buttonSent.click();
+
     }
         public DashBoard cardTransfer1(String card) {
             $("[data-test-id='action-deposit']").should(Condition.text("Пополнить")).click();

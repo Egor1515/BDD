@@ -23,11 +23,11 @@ class MoneyTransferTest {
         var page = new TransferPage();
         var loginPage = open("http://localhost:9999", LoginPageV1.class);
         var authInfo = DataHelper.getAuthInfo();
-        var verificationPage = loginPage.validLogin(authInfo);
+        var verificationPage = LoginPageV1.validLogin(authInfo);
         var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
         verificationPage.validVerify(verificationCode);
         int expected = balance.getFirstCardBalance();
-        page.sentFromFirstCard(DataHelper.cardInfo2());
+        page.sentFromFirstCard(DataHelper.cardInfo1());
         int actual = balance.getFirstCardBalance() - TransferPage.getAmount();
         assertEquals(expected,actual);
 
