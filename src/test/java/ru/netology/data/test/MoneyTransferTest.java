@@ -14,8 +14,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class MoneyTransferTest {
 
     DashBoard.GetCardBalance balance = new DashBoard.GetCardBalance();
-    String card1 = "5559000000000001";
-    String card2 = "5559000000000002";
+    DataHelper info = new DataHelper();
+//    String card1 = "5559000000000001";
+//    String card2 = "5559000000000002";
     @Test
     void shouldTransferMoneyBetweenOwnCardsV1() {
         Configuration.holdBrowserOpen = true;
@@ -26,7 +27,7 @@ class MoneyTransferTest {
         var verificationCode = DataHelper.getVerificationCodeFor(authInfo);
         verificationPage.validVerify(verificationCode);
         int expected = balance.getFirstCardBalance();
-        page.sentFromFirstCard(card2);
+        page.sentFromFirstCard(DataHelper.cardInfo2());
         int actual = balance.getFirstCardBalance() - TransferPage.getAmount();
         assertEquals(expected,actual);
 

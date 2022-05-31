@@ -16,18 +16,18 @@ public class TransferPage {
     private final String card1 = "5559 0000 0000 0001";
     private final String card2 = "5559 0000 0000 0002";
 
-    public void sentFromSecondCard(String card) {
+    public void sentFromSecondCard(int card) {
         amountSent.setValue(String.valueOf(amount));
-        moneyFrom.setValue(card);
+        moneyFrom.setValue(String.valueOf(card));
         buttonSent.click();
     }
     public static int getAmount() {
         return amount;
     }
-    public void sentFromFirstCard(String card) {
+    public void sentFromFirstCard(int card) {
         DashBoard.secondCardButton();
         amountSent.setValue(String.valueOf(amount));
-        moneyFrom.setValue(card);
+        moneyFrom.setValue(String.valueOf(card));
         buttonSent.click();
     }
         public DashBoard cardTransfer1(String card) {
