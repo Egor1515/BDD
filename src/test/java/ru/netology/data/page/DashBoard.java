@@ -9,12 +9,10 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class DashBoard {
 
-    private static SelenideElement card1 = $x("//*[@id='root']/div/ul/li[1]/div/button");
-    private static SelenideElement card2 = $x("//*[@id='root']/div/ul/li[2]/div/button");
     private static SelenideElement heading = $("[data-test-id='dashboard']");
 
     private static SelenideElement reload = $("[data-test-id='action-reload']");
-    private static SelenideElement button = $("[data-test-id = 'action-deposit']");
+    private static ElementsCollection buttons = $$("[data-test-id = 'action-deposit']");
 
     public DashBoard() {
         heading.shouldBe(visible);
@@ -25,20 +23,26 @@ public class DashBoard {
     private static final String balanceFinish = " р.";
 
     public static void firstCardButton() {
-        card2.click();
+        buttons.first().click();
     }
+
     public static void secondCardButton() {
-        card1.click();
+        buttons.last().click();
     }
     public static class GetCardBalance {
 
-        public int getFirstCardBalance() {
+        public static int getFirstCardBalance() {
             val text = cards.first().text();
             return extractBalance(text);
 
         }
+        public int getSecondCardBalance() {
+            val text = cards.last().text();
+            return extractBalance(text);
 
-        private int extractBalance(String text) {
+        }
+
+        private static int extractBalance(String text) {
             val start = text.indexOf(balanceStart);
             val finish = text.indexOf(balanceFinish);
             val value = text.substring(start + balanceStart.length(), finish);
