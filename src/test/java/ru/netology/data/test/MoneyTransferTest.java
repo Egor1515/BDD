@@ -2,10 +2,12 @@ package ru.netology.data.test;
 
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.Test;
 import ru.netology.data.datahelper.DataHelper;
 import ru.netology.data.page.*;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -28,10 +30,13 @@ class MoneyTransferTest {
         int actual = balance.getFirstCardBalance() - TransferPage.getAmount();
         assertEquals(expected,actual);
 
-
-
-
     }
+//    @Test
+//    void shouldReturn(){
+//        final SelenideElement cardInfo2 = $("data-test-id ='0f3f5c2a-249e-4c3d-8287-09f7a039391d'");
+//
+//        DataHelper.cardInfo();
+//    }
 
 //    @Test
 //    void shouldTransferMoneyBetweenOwnCardsV2() {

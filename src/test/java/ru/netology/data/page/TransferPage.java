@@ -29,18 +29,14 @@ public class TransferPage {
         amountSent.setValue(String.valueOf(amount));
         moneyFrom.setValue(card);
         buttonSent.click();
-
     }
-
         public DashBoard cardTransfer1(String card) {
             $("[data-test-id='action-deposit']").should(Condition.text("Пополнить")).click();
             $("[data-test-id='amount'] input").setValue(String.valueOf(amountSent));
             $("[data-test-id='from'] input").setValue(card2);
             $("[data-test-id='action-transfer']").click();
             return new DashBoard();
-
         }
-
         public DashBoard cardTransfer2(String card) {
             $("button__text]").should(Condition.text("Пополнить")).click();
             $("[data-test-id='amount']").setValue(String.valueOf(amountSent));

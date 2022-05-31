@@ -1,19 +1,31 @@
 package ru.netology.data.datahelper;
 
 import com.codeborne.selenide.SelenideElement;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.Value;
+import lombok.*;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class DataHelper {
+    private static final String cardInfoStart = "number: '";
+    private static final String cardInfoFinish = "'";
     private static final SelenideElement cardInfo1 = $("data-test-id ='92df3f1c-a033-48e6-8390-206f6b1f56c0'");
-    private static final SelenideElement cardInfo2 = $("data-test-id ='0f3f5c2a-249e-4c3d-8287-09f7a039391d'");
+    private  static final SelenideElement cardInfo2 = $("data-test-id ='0f3f5c2a-249e-4c3d-8287-09f7a039391d'");
+
+    public static String cardInfo() {
+        val text = cardInfo1.text();
+        return text;
+    }
+
+    private int extractCardNumber(String text) {
+        val start = text.indexOf(cardInfoStart);
+        val finish = text.indexOf(cardInfoFinish);
+        val value = text.substring(start + cardInfoStart.length(), finish);
+        return Integer.parseInt(value);
+    }
 
     private DataHelper() {
     }
+
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
@@ -35,6 +47,7 @@ public class DataHelper {
     public static class VerificationCode {
         String code;
     }
+
     public static VerificationCode getVerificationCodeFor(AuthInfo authInfo) {
         return new VerificationCode("12345");
     }

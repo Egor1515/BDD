@@ -37,6 +37,7 @@ public class DashBoard {
         public int getFirstCardBalance() {
             val text = cards.first().text();
             return extractBalance(text);
+
         }
 
         private int extractBalance(String text) {
