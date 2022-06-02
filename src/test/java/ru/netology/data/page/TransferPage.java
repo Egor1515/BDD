@@ -9,31 +9,15 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class TransferPage {
 
-    static Faker faker = new Faker();
-    private static final SelenideElement amountSent = $("[data-test-id='amount'] input");
-    private static final SelenideElement moneyFrom = $("[data-test-id='from'] input");
-    private static final SelenideElement buttonSent = $(".button[data-test-id='action-transfer']");
-    private static final int amount = Integer.parseInt(faker.numerify("###"));
+    private final SelenideElement amountSent = $("[data-test-id='amount'] input");
+    private final SelenideElement moneyFrom = $("[data-test-id='from'] input");
+    private final SelenideElement buttonSent = $(".button[data-test-id='action-transfer']");
 
-    public void sentFromSecondCard(String card) {
-        DashBoard.firstCardButton();
+    public void sentFromSecondCard(String card, int amount) {
         amountSent.setValue(String.valueOf(amount));
         moneyFrom.setValue(card);
         buttonSent.click();
     }
-
-    public static int getAmount() {
-        return amount;
-    }
-
-    public void sentFromFirstCard(String card) {
-        DashBoard.secondCardButton();
-        amountSent.setValue(String.valueOf(amount));
-        moneyFrom.setValue(String.valueOf(card));
-        buttonSent.click();
-
-    }
-
 }
 
 
